@@ -1,0 +1,15 @@
+{
+  "search_keywords": [
+    "protes Indonesia ekonomi",
+    "demonstrasi Indonesia ekonomi", 
+    "unjuk rasa Indonesia ekonomi",
+    "protest Indonesia economy",
+    "Indonesia demonstration economy"
+  ],
+  "date_range": {
+    "start_date": "2024-08-20",
+    "end_date": "2024-09-10"
+  },
+  "max_tweets": 1000,
+  "language": "id"
+}
