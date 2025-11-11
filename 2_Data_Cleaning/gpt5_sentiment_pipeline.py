@@ -83,7 +83,7 @@ DAILY_SENTIMENT_CSV = os.path.join("data", "daily_sentiment_gpt5.csv")
 
 # Model name for OpenRouter (change if you use another model)
 # For your case: openrouter/polaris-alpha
-GPT5_MODEL = "openrouter/polaris-alpha"
+GPT5_MODEL = "openai/gpt-5-mini"
 
 # Safety: set a limit for testing; set to None to run full dataset
 SAMPLE_LIMIT: Optional[int] = None  # e.g., 500 for dry-run; None for all
@@ -115,7 +115,7 @@ def init_client() -> OpenAI:
             base_url=base_url,
             default_headers={
                 # Optional but recommended by OpenRouter for identification:
-                "HTTP-Referer": "https://github.com/jakarta-sentiment-corr",
+                "HTTP-Referer": "https://github.com/theonegareth/twitter_sentiment_analysis",
                 "X-Title": "jakarta-sentiment-correlation-project",
             },
         )
