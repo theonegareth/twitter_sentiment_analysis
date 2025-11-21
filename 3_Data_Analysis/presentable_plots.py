@@ -94,7 +94,7 @@ df_full['ihsg_return_rolling'] = df_full['ihsg_return_ff'].rolling(window=7).mea
 df_full['usd_return_rolling'] = df_full['usd_return_ff'].rolling(window=7).mean()
 
 # Plot 1: Sentiment vs IHSG
-fig, ax1 = plt.subplots(figsize=(14, 7))
+fig, ax1 = plt.subplots(figsize=(16, 8))
 
 ax1.plot(df_full['date'], df_full['net_sent'], color=colors['sentiment'], linewidth=2, label='Net Sentiment (Twitter)')
 ax1.set_ylabel('Net Sentiment Score', color=colors['sentiment'], fontsize=14)
@@ -117,7 +117,7 @@ ax3.plot(df_full['date'], df_full['ihsg_close_ff'], color='gray', linewidth=1, l
 ax3.plot(df_full['date'], df_full['ihsg_close'], color='gray', linewidth=1, linestyle='-', label='IHSG Raw Close')
 ax3.set_ylabel('IHSG Close Price', color='gray', fontsize=14)
 ax3.tick_params(axis='y', labelcolor='gray')
-ax3.spines["right"].set_position(("axes", 1.1))  # Offset the third axis
+ax3.spines["right"].set_position(("axes", 1.15))  # Offset the third axis further
 
 ax1.xaxis.set_major_formatter(mdates.DateFormatter('%b %d'))
 ax1.xaxis.set_major_locator(mdates.DayLocator(interval=5))
@@ -135,15 +135,15 @@ ax1.text(0.02, 0.98, f'Correlation: {sent_ihsg_corr:.3f}', transform=ax1.transAx
 lines1, labels1 = ax1.get_legend_handles_labels()
 lines2, labels2 = ax2.get_legend_handles_labels()
 lines3, labels3 = ax3.get_legend_handles_labels()
-ax1.legend(lines1 + lines2 + lines3, labels1 + labels2 + labels3, loc='upper left', framealpha=0.9)
+ax1.legend(lines1 + lines2 + lines3, labels1 + labels2 + labels3, loc='upper left', bbox_to_anchor=(0.02, 0.98), framealpha=0.9)
 
-plt.tight_layout()
+plt.tight_layout(pad=3.0)
 plt.savefig('plots/sentiment_vs_ihsg.png', dpi=300, bbox_inches='tight')
-plt.savefig('plots/sentiment_vs_ihsg.pdf', bbox_inches='tight')
+
 plt.show()
 
 # Plot 2: Sentiment vs USD/IDR
-fig, ax1 = plt.subplots(figsize=(14, 7))
+fig, ax1 = plt.subplots(figsize=(16, 8))
 
 ax1.plot(df_full['date'], df_full['net_sent'], color=colors['sentiment'], linewidth=2, label='Net Sentiment (Twitter)')
 ax1.set_ylabel('Net Sentiment Score', color=colors['sentiment'], fontsize=14)
@@ -188,7 +188,7 @@ ax1.legend(lines1 + lines2 + lines3, labels1 + labels2 + labels3, loc='upper lef
 
 plt.tight_layout()
 plt.savefig('plots/sentiment_vs_usd.png', dpi=300, bbox_inches='tight')
-plt.savefig('plots/sentiment_vs_usd.pdf', bbox_inches='tight')
+
 plt.show()
 
 # Plot 3: Rolling averages IHSG
@@ -215,7 +215,7 @@ ax1.legend(lines1 + lines2, labels1 + labels2, loc='upper left', framealpha=0.9)
 
 plt.tight_layout()
 plt.savefig('plots/rolling_sentiment_vs_ihsg.png', dpi=300, bbox_inches='tight')
-plt.savefig('plots/rolling_sentiment_vs_ihsg.pdf', bbox_inches='tight')
+
 plt.show()
 
 # Plot 4: Combined subplot
@@ -300,7 +300,7 @@ for ax in [ax1, ax2, ax3, ax5]:
 plt.suptitle('Twitter Sentiment Analysis vs Market Indicators\nIndonesian Protests Context (Aug-Sep 2025)', fontsize=20, y=0.98)
 plt.tight_layout(rect=[0, 0, 1, 0.96], h_pad=4, w_pad=4) # Increased padding
 plt.savefig('plots/combined_analysis.png', dpi=300, bbox_inches='tight')
-plt.savefig('plots/combined_analysis.pdf', bbox_inches='tight')
+
 plt.show()
 
 print("All presentable plots generated and saved to 'plots/' directory.")
