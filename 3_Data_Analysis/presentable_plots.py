@@ -135,7 +135,7 @@ ax1.text(0.02, 0.94, f'Correlation: {sent_ihsg_corr:.3f}', transform=ax1.transAx
 lines1, labels1 = ax1.get_legend_handles_labels()
 lines2, labels2 = ax2.get_legend_handles_labels()
 lines3, labels3 = ax3.get_legend_handles_labels()
-ax1.legend(lines1 + lines2 + lines3, labels1 + labels2 + labels3, loc='upper left', bbox_to_anchor=(0.02, 0.98), framealpha=0.9)
+ax1.legend(lines1 + lines2 + lines3, labels1 + labels2 + labels3, loc='upper right', framealpha=0.9)
 
 plt.tight_layout(pad=3.0)
 plt.savefig('plots/sentiment_vs_ihsg.png', dpi=300, bbox_inches='tight')
@@ -184,7 +184,7 @@ ax1.text(0.02, 0.94, f'Correlation: {sent_usd_corr:.3f}', transform=ax1.transAxe
 lines1, labels1 = ax1.get_legend_handles_labels()
 lines2, labels2 = ax2.get_legend_handles_labels()
 lines3, labels3 = ax3.get_legend_handles_labels()
-ax1.legend(lines1 + lines2 + lines3, labels1 + labels2 + labels3, loc='upper left', framealpha=0.9)
+ax1.legend(lines1 + lines2 + lines3, labels1 + labels2 + labels3, loc='upper right', framealpha=0.9)
 
 plt.tight_layout()
 plt.savefig('plots/sentiment_vs_usd.png', dpi=300, bbox_inches='tight')
