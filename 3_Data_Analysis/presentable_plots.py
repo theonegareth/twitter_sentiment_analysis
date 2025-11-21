@@ -129,7 +129,7 @@ demo_end = pd.to_datetime('2025-09-07')
 ax1.axvspan(demo_start, demo_end, color='grey', alpha=0.1)
 
 plt.title('Twitter Sentiment vs IHSG Returns (with Raw Prices)\n(Indonesian Protests Context, Aug-Sep 2025)', fontsize=16, pad=20)
-ax1.text(0.02, 0.88, f'Correlation: {sent_ihsg_corr:.3f}', transform=ax1.transAxes,
+ax1.text(0.02, 0.94, f'Correlation: {sent_ihsg_corr:.3f}', transform=ax1.transAxes,
          verticalalignment='top', fontsize=12, bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
 
 lines1, labels1 = ax1.get_legend_handles_labels()
@@ -178,7 +178,7 @@ demo_end = pd.to_datetime('2025-09-07')
 ax1.axvspan(demo_start, demo_end, color='grey', alpha=0.1)
 
 plt.title('Twitter Sentiment vs USD/IDR Returns (with Raw Prices)\n(Indonesian Protests Context, Aug-Sep 2025)', fontsize=16, pad=20)
-ax1.text(0.02, 0.88, f'Correlation: {sent_usd_corr:.3f}', transform=ax1.transAxes,
+ax1.text(0.02, 0.94, f'Correlation: {sent_usd_corr:.3f}', transform=ax1.transAxes,
          verticalalignment='top', fontsize=12, bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
 
 lines1, labels1 = ax1.get_legend_handles_labels()
