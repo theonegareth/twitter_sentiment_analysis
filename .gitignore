@@ -41,6 +41,22 @@ output/
 *.pkl
 *.pickle
 
+# Keep important analysis results
+!granger_causality_results.csv
+!var_model_summary.txt
+!garch_results_summary.txt
+
+# Keep raw data files (but not processed chunks)
+!data/daily_sentiment_gpt5.csv
+!data/ihsg_daily.csv
+!data/usd_idr_daily.csv
+
+# Ignore large processed datasets
+chatgpt_results/
+**/*chunk*.csv
+**/*preprocessed*.csv
+**/*combined*.csv
+
 # API Keys and secrets
 .env
 config.ini
