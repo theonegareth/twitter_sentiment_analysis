@@ -1,0 +1,11 @@
+Pair,Treatment,n,Pearson r,Pearson p,95% CI Low,95% CI High,Spearman rho,Spearman p,Sig.
+IHSG,Original (no treatment),23,0.244,0.261946,-0.1871,0.5962,0.2312,0.288441,n.s.
+IHSG,Winsorise 5-95%,23,0.1966,0.36857,-0.2346,0.5632,0.2229,0.306552,n.s.
+IHSG,Winsorise 10-90%,23,0.1384,0.528961,-0.2904,0.5209,0.2139,0.327161,n.s.
+IHSG,Remove all outliers (IQR),22,0.1438,0.523263,-0.2958,0.5331,0.1598,0.477489,n.s.
+IHSG,Remove top/bottom 2,20,0.1424,0.549113,-0.3203,0.5503,0.1383,0.560787,n.s.
+USD/IDR,Original (no treatment),23,0.0256,0.907717,-0.3907,0.4332,0.1824,0.404891,n.s.
+USD/IDR,Winsorise 5-95%,23,0.0056,0.979723,-0.4075,0.4169,0.179,0.413896,n.s.
+USD/IDR,Winsorise 10-90%,23,0.078,0.723406,-0.3453,0.475,0.1677,0.444381,n.s.
+USD/IDR,Remove all outliers (IQR),21,0.4216,0.056965,-0.0123,0.7219,0.4035,0.069693,n.s.
+USD/IDR,Remove top/bottom 2,20,0.4289,0.059163,-0.0168,0.7324,0.3764,0.101882,n.s.
