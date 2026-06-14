@@ -475,6 +475,36 @@ GPT-5 accuracy on 440 labeled Indonesian tweets (COVID-19 PPKM sentiment dataset
 
 **Limitation:** GPT-5 classification was not validated with human inter-annotator agreement on the protest tweet corpus specifically. The 87% accuracy benchmark is from the PPKM dataset (COVID-19 policy tweets), which may differ in linguistic style from protest discourse.
 
+### Backup H — Keyword Taxonomy (42 Keywords)
+
+Scraped via the Twitter API across all 42 keywords, deduplicated by tweet ID. Organized by category.
+
+#### Protest Event Keywords (19 keywords)
+
+| Category | Keywords |
+|---|---|
+| Direct protest | demo DPR, tolak tunjangan, bubarkan DPR, mahasiswa bergerak |
+| Victim / incident | affan Kurniawan, ojol dilindas, polisi pembunuh |
+| Targeted figures | ahmad sahroni, uya kuya, eko patrio |
+| Escalation / location | mako brimob, anarkis |
+| Demands / policy | 17+8 tuntutan rakyat, RUU Perampasan Aset |
+| General opposition | ACAB, dampak demo rupiah, krisis ekonomi, stabilitas ekonomi |
+
+#### Financial Market Keywords (23 keywords)
+
+| Category | Keywords |
+|---|---|
+| Equity market (IHSG) | IHSG, bursa efek, BEI (bursa efek indonesia) |
+| Market direction (up) | saham naik, naik, menguat, hijau, rebound |
+| Market direction (down) | saham turun, anjlok, merah, nyangkut |
+| Trading activity | jual saham, panic selling, asing cabut, foreign outflow |
+| Currency (USD/IDR) | USD/IDR, nilai tukar rupiah, nilai tukar, kurs rupiah, melemah |
+| Macro / economy | Bank Indonesia, ekonomi Indonesia, pasar keuangan |
+
+**Rationale:** The hybrid keyword set captures both the political protest narrative and the financial market response. This allows testing whether public emotion expressed through protest-related tweets correlates with market behavior.
+
+**Coverage:** Each keyword was scraped for the full Aug 1 - Sep 30 period.
+
 ---
 
 ## Summary of Key Findings (Quick Reference)
