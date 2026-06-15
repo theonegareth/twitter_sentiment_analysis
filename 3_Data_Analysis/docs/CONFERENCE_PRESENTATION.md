@@ -29,6 +29,8 @@
 | Sep 1–2 | 17+8 People's Demands consolidated |
 
 **Why this is a natural experiment:** The protest was an exogenous political shock. If public emotion drives markets, we should see co-movement during this window.
+![Event Timeline](charts/02_event_timeline_ihsg.png)
+
 
 **Chart to show:** Annotated IHSG daily close with event markers (Aug 25, Aug 28, Aug 29).
 
@@ -58,6 +60,8 @@
 **Data file:** `gpt5_merged.csv` (38 rows × 4 columns: date, net_sentiment_ratio, IHSG_return, USDIDR_return)
 
 **Source file:** `gpt5_sentiment_raw.csv` (58 calendar-day rows including weekends, with daily tweet counts and emotion shares)
+![Tweet Volume Timeline](charts/06_tweet_volume_timeline.png)
+
 
 **Speaker notes:**
 - Walk through the pipeline: scraping → dedup → GPT-5 → daily aggregation → merge with market data
@@ -92,7 +96,9 @@ Step 8: Diagnostic checks — normality (Shapiro-Wilk, Jarque-Bera, D'Agostino),
         stationarity (ADF + KPSS), outlier detection (IQR + Z-score)
 ```
 
-**Key design choice:** Net sentiment is the proportion balance, not raw counts. A day with 500 positive and 400 negative tweets (net = +0.10) and a day with 5,000 positive and 4,000 negative (net = +0.10) have the same score. This controls for daily volume variation.
+**Key design choice:** Net sentiment is the proportion balance, not raw counts.
+![Emotion Breakdown](charts/07_emotion_breakdown.png)
+ A day with 500 positive and 400 negative tweets (net = +0.10) and a day with 5,000 positive and 4,000 negative (net = +0.10) have the same score. This controls for daily volume variation.
 
 **Speaker notes:**
 - Walk through steps 1–8 in 60 seconds. Don't dwell; this is methodology, not findings.
@@ -114,7 +120,9 @@ Step 8: Diagnostic checks — normality (Shapiro-Wilk, Jarque-Bera, D'Agostino),
 - **Full period is significant:** r = +0.36, p = 0.027. The 95% CI excludes zero.
 - **After Demo is significant:** r = +0.53, p = 0.043. The relationship persists after the crisis.
 - **Demo period is not significant** despite r = +0.37 — this is purely a power issue (n = 9).
-- Spearman ρ = +0.27 confirms the Pearson result (non-parametric robustness).
+- Spearman ρ = +0.27 confirms the Pearson result
+
+![Scatter Sentiment vs Returns](charts/01_scatter_sentiment_vs_returns.png)
 
 **Chart to show:** Scatterplot of net sentiment (x-axis) vs. IHSG daily return % (y-axis), with OLS regression line, shaded 95% CI band, and points colored by period (Before = green, Demo = red, After = blue).
 
@@ -138,6 +146,7 @@ Step 8: Diagnostic checks — normality (Shapiro-Wilk, Jarque-Bera, D'Agostino),
 
 **Key takeaways:**
 - **Negative direction** is consistent across all three periods — negative emotion aligns with rupiah depreciation (positive USD/IDR return means rupiah weakens).
+
 - **Not statistically significant** at α = 0.05 (p = 0.133).
 - Spearman ρ = −0.34 is stronger than Pearson r = −0.25, suggesting some non-linearity.
 - Exchange rates are driven by multiple factors (interest rates, trade flows, global USD strength) — public emotion is one weak signal among many.
@@ -167,6 +176,8 @@ Step 8: Diagnostic checks — normality (Shapiro-Wilk, Jarque-Bera, D'Agostino),
 - After Demo has 15 days of data — the event generated sustained discussion, not a spike-and-gone pattern.
 
 **Chart to show:** Grouped bar chart with three periods on x-axis, r values on y-axis, separate bars for IHSG (red) and USD/IDR (blue). Asterisk markers on significant bars.
+
+![Period Comparison](charts/04_period_correlation_bar.png)
 
 **Speaker notes:**
 - The After Demo significance is unexpected and interesting — it means the crisis had lasting effects on how people discuss markets on Twitter.
@@ -199,6 +210,8 @@ Step 8: Diagnostic checks — normality (Shapiro-Wilk, Jarque-Bera, D'Agostino),
 - **Pearson r is valid** — no need for non-parametric fallback.
 - **No differencing, no transformation** required — returns are already stationary.
 - **GPT-5 produces clean, normal distributions** — confirms the sentiment engine is well-behaved.
+
+![Distribution Histograms](charts/05_histograms.png)
 
 **Statistical output files:** `gpt5_diagnostics.md`, `normality_test_report.md`, `stationarity_test_report.md`
 
@@ -252,6 +265,8 @@ Step 8: Diagnostic checks — normality (Shapiro-Wilk, Jarque-Bera, D'Agostino),
 
 The crisis day (Aug 29) dominates both the sentiment and return series — it is simultaneously the most negative day for public emotion and the largest single-day IHSG decline in the window.
 
+![4-Panel Timeline](charts/03_four_panel_timeline.png)
+
 **Speaker notes:**
 - Walk the audience through the timeline visually.
 - Emphasize Aug 29 as the anchor — the data tells a clear story.
@@ -280,6 +295,9 @@ The crisis day (Aug 29) dominates both the sentiment and return series — it is
 - This is the "so what" slide. Connect our findings to the broader literature.
 - Don't overclaim — we found a correlation, not a prediction.
 - The After Demo result is the most interesting and unexpected contribution.
+
+![Rolling Correlation](charts/09_rolling_correlation.png)
+
 
 ---
 
@@ -355,6 +373,9 @@ GPT-5 accuracy on 440 labeled Indonesian tweets (COVID-19 PPKM sentiment dataset
 
 **Interpretation:** All three tests (Shapiro-Wilk, Jarque-Bera, D'Agostino-Pearson) fail to reject normality for all three variables at α = 0.05. Pearson r is the appropriate correlation measure.
 
+
+![Net Sentiment Time Series](charts/08_net_sentiment_timeseries.png)
+
 **Test descriptions:**
 - **Shapiro-Wilk:** Most powerful normality test for small samples. H₀: data are normally distributed.
 - **Jarque-Bera:** Tests whether skewness = 0 and kurtosis = 3 (normal distribution moments). Sensitive to outliers.
@@ -376,6 +397,9 @@ GPT-5 accuracy on 440 labeled Indonesian tweets (COVID-19 PPKM sentiment dataset
 - **ADF rejects unit root** (p < 0.05) for all three → no unit root.
 - **KPSS fails to reject stationarity** (p > 0.05) for all three → consistent with stationarity.
 - **Consensus = Stationary** for all variables. No first-differencing required.
+
+
+![USD/IDR Timeline](charts/12_usdidr_timeline.png)
 
 **ADF specification:** Constant only, lags selected by AIC (max = 8).
 **KPSS specification:** Constant only, automatic lag selection.
@@ -475,7 +499,16 @@ GPT-5 accuracy on 440 labeled Indonesian tweets (COVID-19 PPKM sentiment dataset
 
 **Limitation:** GPT-5 classification was not validated with human inter-annotator agreement on the protest tweet corpus specifically. The 87% accuracy benchmark is from the PPKM dataset (COVID-19 policy tweets), which may differ in linguistic style from protest discourse.
 
-### Backup H — Keyword Taxonomy (42 Keywords)
+### Backup H — Additional Charts
+
+![Period Boxplots](charts/11_period_boxplots.png)
+
+![IHSG vs USD/IDR](charts/13_ihsg_vs_usdidr.png)
+
+![Cumulative Returns](charts/10_cumulative_returns.png)
+
+### Backup I — Keyword Taxonomy (42 Keywords)
+
 
 Scraped via the Twitter API across all 42 keywords, deduplicated by tweet ID. Organized by category.
 
@@ -514,6 +547,7 @@ Scraped via the Twitter API across all 42 keywords, deduplicated by tweet ID. Or
 | Net Sentiment → IHSG | 38 | **+0.36** | **0.027** | [+0.04, +0.61] | **Yes** ★ |
 | Net Sentiment → IHSG (After Demo) | 15 | **+0.53** | **0.043** | [+0.02, +0.82] | **Yes** ★ |
 | Net Sentiment → IHSG (Demo) | 9 | +0.37 | 0.329 | [−0.38, +0.84] | No (power) |
+
 | Net Sentiment → USD/IDR | 38 | −0.25 | 0.133 | [−0.53, +0.08] | No |
 
 ---
